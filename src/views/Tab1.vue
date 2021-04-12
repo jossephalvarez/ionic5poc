@@ -11,13 +11,17 @@
           <ion-title size="large">Tab 1</ion-title>
         </ion-toolbar>
       </ion-header>
-    
-      <ExploreContainer name="Tab 1 page" />
+      <ExploreContainer name="Home Screen Tab" />
+
+      <ion-button color="primary" expand="full">Cam</ion-button>
+      <ion-button color="secondary" expand="full">Webview</ion-button>
+      <ion-button color="tertiary" expand="full">Location</ion-button>
+      <ion-button color="success" expand="full">Biometric</ion-button>
     </ion-content>
   </ion-page>
 </template>
 
-<script lang="ts">
+<script>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import ExploreContainer from '@/components/ExploreContainer.vue';
 
