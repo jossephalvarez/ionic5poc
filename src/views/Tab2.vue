@@ -2,10 +2,9 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Blank</ion-title>
+        <ion-title>Camera Tab</ion-title>
       </ion-toolbar>
     </ion-header>
-
     <ion-content :fullscreen="true" class="ion-padding">
       <ion-card>
         <ion-card-header>
@@ -57,7 +56,7 @@
       IonButton,
     },
     setup() {
-      const imageUrl = ref();
+      const imageUrl = ref(null);
 
       const takePicture = async () => {
         // Otherwise, make the call:
