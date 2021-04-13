@@ -41,7 +41,7 @@
   import { Plugins, CameraSource, CameraResultType } from "@capacitor/core";
   const { Camera } = Plugins;
 
-  import { defineComponent } from "vue";
+  import { defineComponent , ref} from "vue";
 
   export default defineComponent({
     name: "Home",
@@ -57,7 +57,7 @@
       IonButton,
     },
     setup() {
-      const imageUrl = '';
+      const imageUrl = ref();
 
       const takePicture = async () => {
         // Otherwise, make the call:
