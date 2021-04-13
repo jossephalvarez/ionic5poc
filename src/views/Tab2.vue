@@ -1,28 +1,115 @@
 <template>
   <ion-page>
-    <ion-header>
+    <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Tab 2</ion-title>
+        <ion-title>Blank</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Tab 2</ion-title>
-        </ion-toolbar>
-      </ion-header>
 
-      <ExploreContainer name="Tab 2 page" />
+    <ion-content :fullscreen="true" class="ion-padding">
+      <ion-card>
+        <ion-card-header>
+          <h2>Camera Tab</h2>
+        </ion-card-header>
+        <ion-card-content>
+          <div>Showing the use of the Capacitor Camera plugin in the application</div>
+          <div class="ion-padding">
+            <img :src="imageUrl ? imageUrl : null" />
+          </div>
+          <ion-toolbar>
+            <ion-button slot="start" @click="takePicture()">Take Picture Now</ion-button>
+          </ion-toolbar>
+        </ion-card-content>
+      </ion-card>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+  import {
+    IonCard,
+    IonCardContent,
+    IonCardHeader,
+    IonContent,
+    IonHeader,
+    IonPage,
+    IonTitle,
+    IonToolbar,
+    IonButton,
+  } from "@ionic/vue";
 
-export default  {
-  name: 'Tab2',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
-}
+  import { Plugins, CameraSource, CameraResultType } from "@capacitor/core";
+  const { Camera } = Plugins;
+
+  import { defineComponent } from "vue";
+
+  export default defineComponent({
+    name: "Home",
+    components: {
+      IonCard,
+      IonCardContent,
+      IonCardHeader,
+      IonContent,
+      IonHeader,
+      IonPage,
+      IonTitle,
+      IonToolbar,
+      IonButton,
+    },
+    setup() {
+      const imageUrl = '';
+
+      const takePicture = async () => {
+        // Otherwise, make the call:
+        try {
+          const image = await Camera.getPhoto({
+            quality: 90,
+            allowEditing: true,
+            resultType: CameraResultType.DataUrl,
+            source: CameraSource.Prompt,
+          });
+          console.log("image", image);
+          // image.base64_data will contain the base64 encoded result as a JPEG, with the data-uri prefix added
+          imageUrl.value = image.dataUrl;
+          // can be set to the src of an image now
+          console.log(image);
+        } catch (e) {
+          console.log("error", e);
+        }
+      };
+      return {
+        takePicture,
+      };
+    },
+  });
 </script>
+
+<style scoped>
+  #container {
+    text-align: center;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+
+    color: #8c8c8c;
+
+    margin: 0;
+  }
+
+  #container a {
+    text-decoration: none;
+  }
+</style>
