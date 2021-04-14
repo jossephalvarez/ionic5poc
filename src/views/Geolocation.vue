@@ -11,11 +11,12 @@
 
     <ion-content :fullscreen="true" class="ion-padding">
       <h2>Welcome To Geolocation Page</h2>
-      <ion-item v-if="location">
+      <ion-item >
         <ion-avatar slot="start">
           <img src="https://mobilemarketingwatch.com/wp-content/uploads/2016/09/location-icon.png">
         </ion-avatar>
-        <ion-label>{{location.coords.latitude}} : {{location.coords.longitude}}</ion-label>
+        <ion-label v-if="location">{{location.coords.latitude}} : {{location.coords.longitude}}</ion-label>
+        <ion-label v-else>...Waiting</ion-label>
       </ion-item>
       <ion-button @click="getLocation">Get Current Location</ion-button>
     </ion-content>
