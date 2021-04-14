@@ -2,13 +2,13 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Camera Tab</ion-title>
+        <ion-title>Camera page</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true" class="ion-padding">
       <ion-card>
         <ion-card-header>
-          <h2>Camera Tabs</h2>
+          <h2>Camera Page</h2>
         </ion-card-header>
         <ion-card-content>
           <div>Showing the use of the Capacitor Camera plugin in the application</div>

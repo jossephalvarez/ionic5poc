@@ -8,9 +8,9 @@
     <ion-content :fullscreen="true">
       <ion-item>
         <ion-avatar slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          <img src="https://avatars.githubusercontent.com/u/17790050?v=4">
         </ion-avatar>
-        <ion-label>Item Avatar</ion-label>
+        <ion-label>Josseph Alvarez</ion-label>
       </ion-item>
       <ion-item>
         <ion-button color="secondary" expand="full" @click="openWebView()">Webview</ion-button>

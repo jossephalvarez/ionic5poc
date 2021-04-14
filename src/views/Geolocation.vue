@@ -5,14 +5,18 @@
         <IonButtons>
           <ion-back-button />
         </IonButtons>
-        <ion-title>Geolocation</ion-title>
+        <ion-title>Geolocation Page</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content :fullscreen="true" class="ion-padding">
-      <h2>This is the Geolocation Page</h2>
-      <div>Showing the use of the Capacitor Geolocation plugin and the vue-router for changing pages in the application</div>
-      <pre v-if="location">{{location.coords.latitude}} : {{location.coords.longitude}}</pre>
+      <h2>Welcome To Geolocation Page</h2>
+      <ion-item v-if="location">
+        <ion-avatar slot="start">
+          <img src="https://mobilemarketingwatch.com/wp-content/uploads/2016/09/location-icon.png">
+        </ion-avatar>
+        <ion-label>{{location.coords.latitude}} : {{location.coords.longitude}}</ion-label>
+      </ion-item>
       <ion-button @click="getLocation">Get Current Location</ion-button>
     </ion-content>
   </ion-page>
