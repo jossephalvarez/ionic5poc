@@ -13,7 +13,7 @@
         <ion-label>Item Avatar</ion-label>
       </ion-item>
       <ion-item>
-        <ion-button color="secondary" expand="full" @click="openModal()">Webview</ion-button>
+        <ion-button color="secondary" expand="full" @click="openWebView()">Webview</ion-button>
         <ion-button color="success" expand="full">Biometric</ion-button>
         <ion-button color="secondary" expand="full" @click="openModal()">Open Modal</ion-button>
         </ion-item>
@@ -24,7 +24,8 @@
 <script>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonAvatar, IonButton , modalController } from '@ionic/vue';
 import Modal from '../components/Modal';
-// import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -47,8 +48,12 @@ export default defineComponent({
         console.log("error", e);
       }
     };
+    const openWebView =() =>{
+      InAppBrowser.create('https://ionicframework.com/','_blank', 'location=yes');
+    }
     return {
-      openModal
+      openModal,
+      openWebView
     };
   },
 

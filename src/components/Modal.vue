@@ -12,6 +12,7 @@
 <script>
     import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
     import { defineComponent } from 'vue';
+    import { InAppBrowser } from '@ionic-native/in-app-browser';
 
     export default defineComponent({
         name: 'Modal',
@@ -22,6 +23,10 @@
             return {
                 content: 'Content Modal here!!',
             }
+        },
+        ionViewWillEnter() {
+            console.log('Home page did leave');
+            InAppBrowser.create('https://ionicframework.com/docs/vue/lifecycle', '_blank');
         },
         components: { IonContent, IonHeader, IonTitle, IonToolbar }
     });
