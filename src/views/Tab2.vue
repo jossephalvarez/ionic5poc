@@ -8,7 +8,7 @@
     <ion-content :fullscreen="true" class="ion-padding">
       <ion-card>
         <ion-card-header>
-          <h2>Camera Tab</h2>
+          <h2>Camera Tabs</h2>
         </ion-card-header>
         <ion-card-content>
           <div>Showing the use of the Capacitor Camera plugin in the application</div>
@@ -78,6 +78,7 @@
       };
       return {
         takePicture,
+        imageUrl
       };
     },
   });
